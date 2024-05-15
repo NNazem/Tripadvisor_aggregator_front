@@ -90,6 +90,23 @@ button {
   gap: 1rem;
   width: 100%;
 }
+.sortSelect {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 1rem;
+  width: auto;
+  margin-left: auto;
+  font-family: inherit;
+  border-radius: 1rem;
+  width: 100px;
+  text-align: center;
+  font-weight: 700;
+  background-color: lightgreen;
+  color: grey;
+  border: none;
+  outline: none;
+}
 
 .location {
   display: table-row;
@@ -104,4 +121,9 @@ button {
   vertical-align: middle;
   padding: 1rem;
   margin: 0 1rem;
+  min-width: 225px;
+  max-width: 225px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

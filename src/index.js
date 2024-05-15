@@ -21,7 +21,7 @@ function App() {
       <Header />
       <Form />
       <Description />
-      <LocationList locations={locations} setPage={setPage} page={page} />
+      <LocationBox locations={locations} setPage={setPage} page={page} />
     </div>
   );
 }
@@ -71,7 +71,23 @@ function Header() {
   );
 }
 
-function LocationList({ locations, setPage, page }) {
+function LocationBox({ locations, setPage, page }) {
+  const [sort, setSort] = useState("name");
+
+  let sortedLocations;
+
+  if (sort === "name")
+    sortedLocations = locations
+      .slice()
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+  if (sort === "address")
+    sortedLocations = locations
+      .slice()
+      .sort((a, b) =>
+        a.address_obj.address_string.localeCompare(b.address_obj.address_string)
+      );
+
   function handlePrevious() {
     if (page === 1) return;
     setPage((prev) => prev - 1);
@@ -80,32 +96,47 @@ function LocationList({ locations, setPage, page }) {
   function handleNext() {
     setPage((prev) => prev + 1);
   }
+
+  function handleSort(e) {
+    setSort(e.target.value);
+  }
+
   return (
     <>
-      <table className="locationList">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Address short</th>
-          </tr>
-        </thead>
-        <tbody>
-          {locations.map((location) => (
-            <Location
-              key={location._id}
-              name={location.name}
-              address={location.address_obj}
-              addressShort={location.address_short}
-            />
-          ))}
-        </tbody>
-      </table>
+      <select onChange={handleSort} className="sortSelect">
+        <option value="name">Name</option>
+        <option value="address">Address</option>
+      </select>
+      <LocationTable locations={sortedLocations} />
       <div className="pageButtons">
         <button onClick={handlePrevious}>Previous</button>
         <button onClick={handleNext}>Next</button>
       </div>
     </>
+  );
+}
+
+function LocationTable({ locations }) {
+  return (
+    <table className="locationList">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Address short</th>
+        </tr>
+      </thead>
+      <tbody>
+        {locations.map((location) => (
+          <Location
+            key={location._id}
+            name={location.name}
+            address={location.address_obj}
+            addressShort={location.address_short}
+          />
+        ))}
+      </tbody>
+    </table>
   );
 }
 

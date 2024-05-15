@@ -1,8 +1,10 @@
+import axios from "axios";
+
 export async function publishLocation(latitude, longitude) {
   const url = `http://localhost:8080/locations/publish?latitude=${latitude}&longitude=${longitude}`;
 
   try {
-    const response = await fetch(url);
+    const response = await axios.get(url);
     if (response.status === 200) {
       console.log("Request succeeded");
     } else {
@@ -17,9 +19,9 @@ export async function getLocations(page) {
   const url = `http://localhost:8080/locations?page=${page}`;
 
   try {
-    const response = await fetch(url);
+    const response = await axios.get(url);
     if (response.status === 200) {
-      const data = await response.json();
+      const data = response.data;
       return data;
     } else {
       console.log("Request failed with status:", response.status);
