@@ -1,129 +1,28 @@
-@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Quicksand:wght@500;700&display=swap");
+:root {
+  --color-brand--1: #ffb545;
+  --color-brand--2: #00c46a;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 62.5%;
+  --color-dark--0: #242a2e;
+  --color-dark--1: #2d3439;
+  --color-dark--2: #42484d;
+  --color-light--1: #aaa;
+  --color-light--2: #ececec;
+  --color-light--3: #d6dee0;
 }
 
 body {
-  font-family: "Roboto Mono", sans-serif;
-  color: #252525;
-  font-weight: 400;
-  background-color: #f7f2e9;
-  border-bottom: 1.6rem solid lightgreen;
-  min-height: 100vh;
-  padding: 3.2rem;
+  font-family: "Manrope", sans-serif;
+  color: var(--color-light--2);
 }
-
-.container {
-  max-width: 80rem;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3rem;
-}
-
-.add-form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.8rem;
-}
-
-input,
-button {
-  font-family: inherit;
-  border-radius: 1rem;
-  padding: 0.5rem 1rem;
-  width: 100px;
-  font-weight: 700;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-input {
-  background-color: #f7f2e9;
-  border-color: lightgreen;
-  border-width: 1px;
-  border-style: solid;
-  outline-color: lightgreen;
-  outline-width: 1px;
-}
-
-button {
-  border: none;
-  background-color: lightgreen;
-  color: grey;
-}
-
-.header {
-  align-self: stretch;
-}
-
-.header h1 {
-  color: green;
-  font-family: "Monoton";
-  font-size: 4.2rem;
+.cta:link,
+.cta:visited {
+  background-color: var(--color-brand--2);
+  color: var(--color-ligh--1);
+  padding: 0.8rem 2rem;
+  border-radius: 15px;
+  text-decoration: none;
   text-transform: uppercase;
-  font-weight: 400;
-  text-align: center;
-  word-spacing: 15px;
-}
-
-.locationList {
-  display: table;
-  width: 100%;
-  border-spacing: 0 1rem;
-  margin: px auto;
-}
-
-.pageButtons {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  gap: 1rem;
-  width: 100%;
-}
-.sortSelect {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  gap: 1rem;
-  width: auto;
-  margin-left: auto;
-  font-family: inherit;
-  border-radius: 1rem;
-  width: 100px;
-  text-align: center;
-  font-weight: 700;
-  background-color: lightgreen;
-  color: grey;
-  border: none;
-  outline: none;
-}
-
-.location {
-  display: table-row;
-}
-
-.location > div,
-.location > td {
-  font-weight: 500;
-  font-size: 11px;
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
-  padding: 1rem;
-  margin: 0 1rem;
-  min-width: 225px;
-  max-width: 225px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1rem 2rem;
 }
