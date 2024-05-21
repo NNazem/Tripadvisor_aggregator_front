@@ -1,13 +1,21 @@
 .locationList {
   width: 100%;
+  table-layout: fixed; /* Imposta la larghezza delle colonne in base alla larghezza della tabella */
   border-collapse: collapse;
   text-align: center;
+  overflow-x: auto; /* Abilita lo scroll orizzontale se il contenuto è più lungo */
 }
 
 .locationList th,
 .locationList td {
   border: 1px solid #ddd;
+  width: 33%; /* Imposta la larghezza delle colonne al 33% */
   padding: 8px;
+}
+
+/* Rimuovi la larghezza fissa per l'header */
+.locationList th {
+  width: auto;
 }
 
 .locationList th {
@@ -18,16 +26,26 @@
 }
 
 .locationList tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
-  color: var(--color-brand--2);
+  background-color: var(--color-light--1);
+  color: var(--color-light--2);
 }
 
+/*
 .locationList tbody tr:hover {
   background-color: #ddd;
-}
+}*/
 
 .locationList th,
 .locationList td {
   text-align: center;
   vertical-align: middle;
+}
+
+.container {
+  position: relative;
+}
+
+.buttons {
+  text-align: right;
+  margin: 10px 0 0 0;
 }

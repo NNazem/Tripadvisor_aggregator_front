@@ -1,0 +1,20 @@
+.logoContainer {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.logo {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+
+.logoHover {
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+
+.logoContainer:hover .logoHover {
+  opacity: 1;
+}
